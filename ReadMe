@@ -1,0 +1,10 @@
+说明：程序采用 Gin + Sqlite，用两个独立数据库模拟分布式数据库，采用内存排序来决定最后输出数据
+
+ps：实际工作中，可能会建议采用 TiDB 之类的分布式数据库，来解决分布式查询问题
+
+程序运行：为了方便运行程序，已经在 release 目录，输出了两个执行文件。windows 下执行  todo_list.exe, mac 下执行 todo_list。
+运行程序之后，程序会在当前目录，建立两个数据库(main.db,sec.db)。
+
+查看 swag 文档 http://127.0.0.1:9081/doc/doc.html
+可以在 swag 文档里面直接查看结果：http://127.0.0.1:9081/doc/doc.html#/ToDoList/TODOList/a70c8c23132a5c929259208ae55350e6
+也可以在浏览器中打开：http://127.0.0.1:9081/user/todo_list?user_id=8&limit=10

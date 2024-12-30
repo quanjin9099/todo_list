@@ -1,0 +1,70 @@
+basePath: /
+definitions:
+  main.ToDoListResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/main.TodoInfoResponse'
+        type: array
+      user_name:
+        type: string
+    type: object
+  main.TodoInfoResponse:
+    properties:
+      description:
+        description: 描述
+        type: string
+      id:
+        description: ID
+        type: integer
+      name:
+        description: 名称
+        type: string
+      score:
+        description: 分数 1-100
+        type: integer
+    type: object
+  main.TodoResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      response:
+        $ref: '#/definitions/main.ToDoListResponse'
+    type: object
+host: 这里写接口服务的host
+info:
+  contact:
+    email: bothwin.qj@gmail.com
+    name: jin quan
+  description: TodoList 项目API文档
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: TodoList 项目API文档
+  version: "1.0"
+paths:
+  /user/todo_list:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - in: query
+        name: limit
+        type: integer
+      - in: query
+        name: user_id
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.TodoResponse'
+      summary: 获取用户待办列表接口
+      tags:
+      - TODOList
+swagger: "2.0"
